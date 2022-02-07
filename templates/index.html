@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRYPTO PRICES</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="coins">Coins: </label><input name="coins" id="coins" type="text">
+        <button type="submit">SUBMIT</button>
+    </form>
+    <div class="all-crypto">
+        {% for rate in rates %}
+            <div>
+                <span class="crypto {{ rate["symbol"] }}">{{ rate["symbol"][:-4] }}:</span>
+                <span class="price {{ rate["symbol"] }}">{{ rate["price"] }}</span>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // setInterval(() => {
+        //     $.getJSON({
+        //         url: "/getPrices",
+        //         success: function(data){
+        //             data.forEach(element => {
+        //                 $(".price." + element.symbol).text(element.price)
+        //             });
+        //         }
+        //     });            
+        // }, 3000);
+
+        // setInterval(() => {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "",
+        //         contentType: "application/json",
+        //         success:function(response){
+        //             console.log(response)
+        //         }
+        //     })
+        // }, 5000);
+        
+    </script>
+</body>
+</html>
+
+<!-- .done(function(data) {
+    console.log($.getJSON(data)) // returning html file : want json of rates
+}); -->
