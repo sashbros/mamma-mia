@@ -2,6 +2,7 @@ from urllib import request
 from flask import Flask, render_template, jsonify, request, redirect
 import requests
 import json
+from livereload import Server
 
 app = Flask(__name__)
 
@@ -17,31 +18,20 @@ def fetch_price(coins):
     
     return data
 
+coins = ['BTC', 'ETH', 'SOL', 'DOGE', 'ADA']
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    coins = []
-    if request.method == "POST":
-        print("entered / ")
-        coins_form = request.form.get("coins")
-        print(coins_form)
-        coins = coins_form
-
-        rates = fetch_price(coins)
-        return render_template('index.html', rates=rates)
-    elif request.method == "GET":
-        #coins = ['BTC', 'ETH', 'SOL', 'DOGE']
-        print(coins)
-        if len(coins)==0:
-            coins = ["ADA"]
-        rates = fetch_price(coins)
-        return render_template('index.html', rates=rates)
+    rates = fetch_price(coins)
+    return render_template('index.html', rates=rates)
 
 @app.route("/getPrices")
 def getPrices():
-    coins = ['BTC', 'ETH', 'SOL', 'DOGE']
     rates = fetch_price(coins)
     return jsonify(rates)
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8000)
+    server = Server(app.wsgi_app)
+    server.watch('./static/*')
+    server.serve(port=8000)
+    # app.run(host='127.0.0.1', port=8000)

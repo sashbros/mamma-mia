@@ -7,41 +7,27 @@
     <title>CRYPTO PRICES</title>
 </head>
 <body>
-    <form action="" method="post">
-        <label for="coins">Coins: </label><input name="coins" id="coins" type="text">
+    <!-- <form action="" method="post">
+        <label for="coins">Coins: </label><input name="coins[]" id="coins" type="text">
         <button type="submit">SUBMIT</button>
-    </form>
+    </form> -->
     <div class="all-crypto">
         {% for rate in rates %}
             <div>
                 <span class="crypto {{ rate["symbol"] }}">{{ rate["symbol"][:-4] }}:</span>
                 <span class="price {{ rate["symbol"] }}">{{ rate["price"] }}</span>
+                <span id="{{ rate["symbol"] }}"></span>
             </div>
         {% endfor %}
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+    <script src="./../static/index.js"></script>
     <script>
-        // setInterval(() => {
-        //     $.getJSON({
-        //         url: "/getPrices",
-        //         success: function(data){
-        //             data.forEach(element => {
-        //                 $(".price." + element.symbol).text(element.price)
-        //             });
-        //         }
-        //     });            
-        // }, 3000);
 
-        // setInterval(() => {
-        //     $.ajax({
-        //         type: "GET",
-        //         url: "",
-        //         contentType: "application/json",
-        //         success:function(response){
-        //             console.log(response)
-        //         }
-        //     })
-        // }, 5000);
+        
+        
         
     </script>
 </body>
