@@ -1,0 +1,22 @@
+[
+  {
+    "price": "43624.97000000", 
+    "symbol": "BTCUSDT"
+  }, 
+  {
+    "price": "2925.90000000", 
+    "symbol": "ETHUSDT"
+  }, 
+  {
+    "price": "100.61000000", 
+    "symbol": "SOLUSDT"
+  }, 
+  {
+    "price": "0.13240000", 
+    "symbol": "DOGEUSDT"
+  }, 
+  {
+    "price": "0.93200000", 
+    "symbol": "ADAUSDT"
+  }
+]
