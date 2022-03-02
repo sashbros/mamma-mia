@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, request, redirect
 import requests
 import json
 from livereload import Server
+import os
 
 app = Flask(__name__)
 
@@ -32,8 +33,9 @@ def getPrices():
     return jsonify(rates)
 
 if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
     server = Server(app.wsgi_app)
     server.watch('./static/*')
-    server.serve(host='0.0.0.0', port=8000)
+    server.serve(host='0.0.0.0', port=port)
 
 # app.run(host='0.0.0.0', port=8000)
