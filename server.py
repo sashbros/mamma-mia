@@ -44,4 +44,5 @@ if __name__ == "__main__":
     server = Server(app.wsgi_app)
     server.watch('./static/*')
     server.serve(port=8000)
+    freezer.freeze()
     # app.run(host='127.0.0.1', port=8000)
