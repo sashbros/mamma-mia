@@ -34,4 +34,4 @@ def getPrices():
 if __name__ == "__main__":
     server = Server(app.wsgi_app)
     server.watch('./static/*')
-    server.serve(port=8000)
+    server.serve()
