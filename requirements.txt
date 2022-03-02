@@ -1,7 +1,5 @@
 flask
 Flask
-render_template
-jsonify
 gunicorn
 Jinja2
 requests
